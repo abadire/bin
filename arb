@@ -1,0 +1,4 @@
+#!/bin/bash -x
+rm -r node_modules/@atmlib
+npm i
+s

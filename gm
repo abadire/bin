@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+gcloud container clusters get-credentials atomyze-preprod-migrate --zone europe-west4-a --project pprod-migrate-2-4-4942

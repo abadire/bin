@@ -1,0 +1,4 @@
+#!/bin/bash -x
+rm -r node_modules
+npm i --legacy-peer-deps
+npx ng serve -o

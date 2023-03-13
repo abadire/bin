@@ -1,0 +1,24 @@
+#!/bin/bash
+a=`git merge-base HEAD master`
+b=`git merge-base HEAD develop`
+c=`git merge-base master develop`
+HEAD=`git rev-parse HEAD`
+
+branchName=`git rev-parse --abbrev-ref HEAD`
+
+if [ $b == $c ]
+then
+  git checkout develop
+  git pull
+  git checkout -b ${branchName}_develop
+  # if gonna complain about merge commits - add '-m'
+  git cherry-pick $a..$HEAD
+  ar
+elif [ $a == $c ]
+then
+  git checkout master
+  git pull
+  git checkout -b ${branchName}_master
+  git cherry-pick $b..$HEAD
+  ar
+fi
