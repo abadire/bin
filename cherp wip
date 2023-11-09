@@ -1,0 +1,29 @@
+#!/bin/bash
+a=`git merge-base HEAD master`
+b=`git merge-base HEAD develop`
+c=`git merge-base master develop`
+HEAD=`git rev-parse HEAD`
+
+branchName=`git rev-parse --abbrev-ref HEAD`
+
+if [ $b == $c ]
+then
+  if [[ $branchName == *master ]]; then otherName=${branchName%_master}; else otherName=${branchName}_develop; fi
+  echo $otherName
+  git checkout $otherName
+  # if gonna complain about merge commits - add '-m'
+    echo $a
+  echo $HEAD
+  echo `git rev-list $a..$HEAD .`
+  git rev-list $a..$HEAD . | git cherry-pick --stdin
+  # git push
+elif [ $a == $c ]
+then
+  if [[ $branchName == *develop ]]; then otherName=${branchName%_develop}; else otherName=${branchName}_master; fi
+  echo $otherName
+  git checkout $otherName
+  echo $b
+  echo $HEAD
+  git cherry-pick $b..$HEAD
+  # git push
+fi

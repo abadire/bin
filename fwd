@@ -12,6 +12,9 @@ pods=(
     ["backed-elements"]="50009"
     ["tx-executor"]="50010"
     ["financial-reporter"]="50011"
+    ["dictionary"]="50012"
+    ["agg-common"]="50013"
+    ["agg-user-profile"]="50014"
 )
 
 

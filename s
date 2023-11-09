@@ -1,3 +1,2 @@
-#! /bin/sh
-set -x #echo on
+#!/bin/bash -x
 npx ng serve

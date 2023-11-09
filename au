@@ -1,4 +1,3 @@
-#! /bin/sh
-set -x
-npm remove @atmlib/proto
-npm i @atmlib/proto
+#!/bin/bash -x
+npm remove @atmlib/proto-web
+npm i @atmlib/proto-web
