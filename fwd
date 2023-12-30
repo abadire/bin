@@ -16,6 +16,8 @@ pods=(
     ["agg-system"]="50013"
     ["agg-user-profile"]="50014"
     ["agg-customer-info"]="50015"
+    ["agg-wallet"]="50016"
+    ["agg-issuance"]="50017"
 )
 
 
