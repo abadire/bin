@@ -13,11 +13,13 @@ pods=(
     # ["tx-executor"]="50010"
     # ["financial-reporter"]="50011"
     # ["dictionary"]="50012"
-    ["agg-system"]="50013"
-    ["agg-user-profile"]="50014"
-    ["agg-customer-info"]="50015"
-    ["agg-wallet"]="50016"
-    ["agg-issuance"]="50017"
+    # ["agg-system"]="50013"
+    # ["agg-user-profile"]="50014"
+    # ["agg-customer-info"]="50015"
+    # ["agg-wallet"]="50016"
+    # ["agg-issuance"]="50017"
+    # ["agg-primary-market"]="50018"
+    ["external-gateway"]="50019"
 )
 
 
