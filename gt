@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+gcloud container clusters get-credentials test3 --zone europe-west4-a --project atme-test3-tf7mkt
