@@ -1,2 +1,2 @@
 #!/bin/bash -x
-pnpm i && pnpm run dev
+rm -rf .next && pnpm i && pnpm run dev

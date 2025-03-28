@@ -22,33 +22,13 @@ pods=(
     ["external-gateway"]="50019"
 )
 
-
 for pod in "${!pods[@]}"; do
-  # Запускаем port-forward только один раз для каждого пода
-  kubectl -n microservices get pods |
-  grep -E "${pod}.*Running" |
-  grep -vE 'migrations|vault' |
-  head -n 1 |
-  awk '{print $1;}' |
-  xargs -I{} kubectl -n microservices port-forward --address 0.0.0.0 {} ${pods[$pod]}:50000 &
-  
-  # Используем PID процесса port-forward для проверки его работы
-  port_forward_pid=$(ps aux | grep "kubectl -n microservices port-forward --address 0.0.0.0" | awk '{print $2}')
-
-  # Цикл, который перезапускает port-forward, если он завершился
-  while true; do
-    if ! ps -p "$port_forward_pid" > /dev/null 2>&1; then
-      echo "Port forwarding for pod $pod stopped. Restarting..."
-      kubectl -n microservices get pods |
-      grep -E "${pod}.*Running" |
-      grep -vE 'migrations|vault' |
-      head -n 1 |
-      awk '{print $1;}' |
-      xargs -I{} kubectl -n microservices port-forward --address 0.0.0.0 {} ${pods[$pod]}:50000 &
-      port_forward_pid=$(ps aux | grep "kubectl -n microservices port-forward --address 0.0.0.0" | awk '{print $2}')
-    fi
-    sleep 5
-  done
+    kubectl -n microservices get pods |
+    grep -E "${pod}.*Running" |
+    grep -vE 'migrations|vault' |
+    head -n 1 |
+    awk '{print $1;}' |
+    xargs -I{} kubectl -n microservices port-forward --address 0.0.0.0 {} ${pods[$pod]}:50000 &
 done
 
 wait
