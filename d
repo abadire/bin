@@ -1,2 +1,2 @@
 #!/bin/bash -x
-pnpm run dev
+pnpm run dev:turbo

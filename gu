@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
 gcloud container clusters get-credentials uat3 --zone europe-west4-a --project atme-uat3-ju98v7
+fwd
